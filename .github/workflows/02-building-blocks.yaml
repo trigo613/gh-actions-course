@@ -1,8 +1,8 @@
-name: 01 - Building Blocks
-on: push
+name: 02 - Workflow Events
+on: [push, pull_request, schedule,  workflow_dispatch]
 jobs:
-    echo-hello:
+    echo:
         runs-on: ubuntu-latest
         steps:
-            - name: Say Hello
-              run: echo "Hello, World!"
+            - name: Show the triggering event
+              run: 'echo "This workflow was triggered by: ${{ github.event_name }}"'
